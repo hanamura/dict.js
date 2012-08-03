@@ -1,6 +1,6 @@
 # dict.js
 
-## `dict.Dict`
+## dict.Dict
 
 A collection that uses an object as a key.
 
@@ -26,7 +26,7 @@ A collection that uses an object as a key.
 	d.clear();
 	d.len(); // 0
 
-## `dict.DeepDict`
+## dict.DeepDict
 
 A collection that uses a sequence of objects as a key.
 
