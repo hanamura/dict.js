@@ -10,5 +10,6 @@
 	"devDependencies": {
 		"grunt-shell": ">= 0.1.2",
 		"grunt-contrib": ">= 0.1.4"
-	}
+	},
+	"main": "./index.js"
 }
