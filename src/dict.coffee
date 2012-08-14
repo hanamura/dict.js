@@ -1,14 +1,13 @@
-oldDict = @dict
 dict = {}
 
 if module?.exports?
 	module.exports = dict
 else
+	oldDict = @dict
 	@dict = dict
-
-dict.noConflict = =>
-	@dict = oldDict
-	return dict
+	dict.noConflict = =>
+		@dict = oldDict
+		dict
 
 
 
