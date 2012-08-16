@@ -16,6 +16,12 @@ dict.Dict = class Dict
 		@_keys = []
 		@_vals = []
 
+	keys: ->
+		@_keys.slice()
+
+	vals: ->
+		@_vals.slice()
+
 	len: ->
 		@_keys.length
 
@@ -54,6 +60,10 @@ dict.Dict = class Dict
 		for i in [0...@_keys.length]
 			f.apply context, [@_keys[i], @_vals[i]]
 		@
+
+	map: (f, context = @) ->
+		for i in [0...@_keys.length]
+			f.apply context, [@_keys[i], @_vals[i]]
 
 
 
