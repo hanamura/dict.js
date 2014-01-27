@@ -1,0 +1,22 @@
+{
+  "name": "dictjs",
+  "description": "Collections that uses an object as a key.",
+  "main": "dict.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/hanamura/dict.js",
+  "authors": [
+    "Taro Hanamura <m@hanamurataro.com>"
+  ],
+  "keywords": [
+    "collection",
+    "map"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
