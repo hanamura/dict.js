@@ -5,6 +5,7 @@
     "type": "git",
     "url": "git://github.com/hanamura/dict.js.git"
   },
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.2",
