@@ -1,1 +1,1 @@
-module.exports = require('./lib/dict');
+module.exports = require('./dict');
