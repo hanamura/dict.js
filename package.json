@@ -1,15 +1,16 @@
 {
-	"name": "dict",
-	"version": "0.1.0",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/hanamura/dict.js.git"
-	},
-	"dependencies": {
-	},
-	"devDependencies": {
-		"grunt-shell": ">= 0.1.2",
-		"grunt-contrib": ">= 0.1.4"
-	},
-	"main": "./index.js"
+  "name": "dict",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hanamura/dict.js.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "~0.8.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-uglify": "~0.3.2"
+  },
+  "main": "./index.js"
 }

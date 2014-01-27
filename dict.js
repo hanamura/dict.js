@@ -19,7 +19,6 @@
   }
 
   dict.Dict = Dict = (function() {
-
     function Dict() {
       this._keys = [];
       this._vals = [];
@@ -107,7 +106,6 @@
   })();
 
   Node = (function(_super) {
-
     __extends(Node, _super);
 
     function Node() {
@@ -141,7 +139,6 @@
   })(Dict);
 
   dict.DeepDict = DeepDict = (function() {
-
     function DeepDict() {
       this._node = new Node;
     }
@@ -222,14 +219,15 @@
     };
 
     DeepDict.prototype._getNode = function(keys) {
-      var node;
+      var e, node;
       keys = keys.slice();
       node = this._node;
       try {
         while (keys.length) {
           node = node.get(keys.shift());
         }
-      } catch (e) {
+      } catch (_error) {
+        e = _error;
         node = null;
       }
       return node;
