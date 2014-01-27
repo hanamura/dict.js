@@ -27,6 +27,7 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-mocha-test'
+	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.registerTask 'default', [
 		'coffee:js',
 		'uglify:js',
