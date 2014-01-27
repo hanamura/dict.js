@@ -1,5 +1,6 @@
 {
   "name": "dictjs",
+  "description": "Collections that uses an object as a key.",
   "version": "0.1.0",
   "repository": {
     "type": "git",
