@@ -10,26 +10,27 @@ module.exports = (grunt) ->
 				src: 'dict.js'
 				dest: 'dict.min.js'
 
-		mochaTest:
+		mocha:
 			test:
+				src: 'test/**/*.html'
 				options:
-					reporter: 'spec'
-				src: 'test/*.coffee'
+					run: true
+					reporter: 'Spec'
 
 		watch:
 			files: 'src/*.coffee'
 			tasks: [
-				'coffee:js',
-				'uglify:js',
-				'mochaTest:test',
+				'coffee:js'
+				'uglify:js'
+				'mocha:test'
 			]
 
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
-	grunt.loadNpmTasks 'grunt-mocha-test'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
+	grunt.loadNpmTasks 'grunt-mocha'
 	grunt.registerTask 'default', [
-		'coffee:js',
-		'uglify:js',
-		'mochaTest:test',
+		'coffee:js'
+		'uglify:js'
+		'mocha:test'
 	]
