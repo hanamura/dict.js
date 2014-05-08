@@ -1,6 +1,5 @@
 (function() {
   var DeepDict, Dict, Node, dict, oldDict,
-    _this = this,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -12,10 +11,12 @@
   } else {
     oldDict = this.dict;
     this.dict = dict;
-    dict.noConflict = function() {
-      _this.dict = oldDict;
-      return dict;
-    };
+    dict.noConflict = (function(_this) {
+      return function() {
+        _this.dict = oldDict;
+        return dict;
+      };
+    })(this);
   }
 
   dict.Dict = Dict = (function() {
@@ -206,16 +207,17 @@
     };
 
     DeepDict.prototype._each = function(keys, node, f, context) {
-      var _this = this;
       if (context == null) {
         context = null;
       }
       if (node.h()) {
         f.apply(context, [keys, node.g()]);
       }
-      return node.each(function(key, val) {
-        return _this._each(keys.concat([key]), val, f, context);
-      });
+      return node.each((function(_this) {
+        return function(key, val) {
+          return _this._each(keys.concat([key]), val, f, context);
+        };
+      })(this));
     };
 
     DeepDict.prototype._getNode = function(keys) {
