@@ -18,7 +18,10 @@ module.exports = (grunt) ->
 					reporter: 'Spec'
 
 		watch:
-			files: 'src/*.coffee'
+			files: [
+				'src/*.coffee'
+				'test/*'
+			]
 			tasks: [
 				'coffee:js'
 				'uglify:js'

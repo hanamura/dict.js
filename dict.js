@@ -1,25 +1,10 @@
 (function() {
-  var DeepDict, Dict, Node, dict, oldDict,
+  var DeepDict, Dict, Node, dict, dict_,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  dict = {};
-
-  if ((typeof module !== "undefined" && module !== null ? module.exports : void 0) != null) {
-    module.exports = dict;
-  } else {
-    oldDict = this.dict;
-    this.dict = dict;
-    dict.noConflict = (function(_this) {
-      return function() {
-        _this.dict = oldDict;
-        return dict;
-      };
-    })(this);
-  }
-
-  dict.Dict = Dict = (function() {
+  Dict = (function() {
     function Dict() {
       this._keys = [];
       this._vals = [];
@@ -139,7 +124,7 @@
 
   })(Dict);
 
-  dict.DeepDict = DeepDict = (function() {
+  DeepDict = (function() {
     function DeepDict() {
       this._node = new Node;
     }
@@ -238,5 +223,28 @@
     return DeepDict;
 
   })();
+
+  dict = {
+    Dict: Dict,
+    DeepDict: DeepDict
+  };
+
+  switch (false) {
+    case !(typeof define === 'function' && define.amd):
+      define('dict', [], dict);
+      break;
+    case typeof (typeof module !== "undefined" && module !== null ? module.exports : void 0) !== 'object':
+      module.exports = dict;
+      break;
+    default:
+      dict_ = this.dict;
+      this.dict = dict;
+      this.dict.noConflict = (function(_this) {
+        return function() {
+          _this.dict = dict_;
+          return dict;
+        };
+      })(this);
+  }
 
 }).call(this);

@@ -1,17 +1,4 @@
-dict = {}
-
-if module?.exports?
-	module.exports = dict
-else
-	oldDict = @dict
-	@dict = dict
-	dict.noConflict = =>
-		@dict = oldDict
-		dict
-
-
-
-dict.Dict = class Dict
+class Dict
 	constructor: ->
 		@_keys = []
 		@_vals = []
@@ -65,8 +52,6 @@ dict.Dict = class Dict
 		for i in [0...@_keys.length]
 			f.apply context, [@_keys[i], @_vals[i]]
 
-
-
 class Node extends Dict
 	constructor: ->
 		@_h = false
@@ -90,9 +75,7 @@ class Node extends Dict
 		@_v = undefined
 		@
 
-
-
-dict.DeepDict = class DeepDict
+class DeepDict
 	constructor: ->
 		@_node = new Node
 
@@ -149,3 +132,19 @@ dict.DeepDict = class DeepDict
 		catch e
 			node = null
 		node
+
+dict =
+	Dict: Dict
+	DeepDict: DeepDict
+
+switch
+	when typeof define is 'function' and define.amd
+		define 'dict', [], dict
+	when typeof module?.exports is 'object'
+		module.exports = dict
+	else
+		dict_ = @dict
+		@dict = dict
+		@dict.noConflict = =>
+			@dict = dict_
+			dict
